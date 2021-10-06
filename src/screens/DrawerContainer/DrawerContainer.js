@@ -35,7 +35,7 @@ export default class DrawerContainer extends React.Component {
               navigation.closeDrawer();
             }}
           />
-          <MenuButton
+          {/* <MenuButton
             customStyle={{ marginTop: 200 }}
             title="LOGOUT"
             onPress={() => {
@@ -46,7 +46,7 @@ export default class DrawerContainer extends React.Component {
                 })
                 .catch((error) => alert(error.message));
             }}
-          />
+          /> */}
         </View>
       </View>
     );

@@ -10,15 +10,15 @@ import DrawerContainer from "../screens/DrawerContainer/DrawerContainer";
 import IngredientScreen from "../screens/Ingredient/IngredientScreen";
 import SearchScreen from "../screens/Search/SearchScreen";
 import IngredientsDetailsScreen from "../screens/IngredientsDetails/IngredientsDetailsScreen";
-import SignInScreen from "../screens/SignIn/SignIn";
+import SignInScreen from "../screens/Auth/SignInScreen";
 import WelcomeScreen from "../screens/Welcome/WelcomeScreen";
-import SignUpScreen from "../screens/SignIn/SignUp";
+// import SignUpScreen from "../screens/Auth/SignUpScreen";
 import OrderScreen from "../screens/Order/OrderScreen";
 
 const MainNavigator = createStackNavigator(
   {
-    SignIn: SignInScreen,
-    SignUp: SignUpScreen,
+     SignIn: SignInScreen,
+    // SignUp: SignUpScreen,
     Welcome:WelcomeScreen,
     Home: HomeScreen,
     Order:OrderScreen,
@@ -30,7 +30,7 @@ const MainNavigator = createStackNavigator(
     IngredientsDetails: IngredientsDetailsScreen,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "SignUp",
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: "bold",
@@ -54,6 +54,5 @@ const DrawerStack = createDrawerNavigator(
   }
 );
 
-export default AppContainer = createAppContainer(DrawerStack);
+export default AppNavigation = createAppContainer(MainNavigator);
 
-console.disableYellowBox = true;
