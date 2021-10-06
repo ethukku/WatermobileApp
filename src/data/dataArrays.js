@@ -2,7 +2,7 @@ export const products = [
   {
     id: 1,
     name: '20 litre Bottle',
-    price: '500 /=',
+    price: '560 /=',
     image_url: './assets/images/20.png'
   },
   {
