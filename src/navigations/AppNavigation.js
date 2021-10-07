@@ -4,7 +4,7 @@ import { createStackNavigator } from "react-navigation-stack";
 
 import HomeScreen from "../screens/Home/HomeScreen";
 import CategoriesScreen from "../screens/Categories/CategoriesScreen";
-import RecipeScreen from "../screens/Recipe/RecipeScreen";
+import DescribtionScreen from "../screens/Description/DescribtionScreen";
 import RecipesListScreen from "../screens/RecipesList/RecipesListScreen";
 import DrawerContainer from "../screens/DrawerContainer/DrawerContainer";
 import IngredientScreen from "../screens/Ingredient/IngredientScreen";
@@ -23,7 +23,7 @@ const MainNavigator = createStackNavigator(
     Home: HomeScreen,
     Order:OrderScreen,
     Categories: CategoriesScreen,
-    Recipe: RecipeScreen,
+    Describtion: DescribtionScreen,
     RecipesList: RecipesListScreen,
     Ingredient: IngredientScreen,
     Search: SearchScreen,

@@ -4,7 +4,6 @@ import styles from './styles';
 import { products } from '../../data/dataArrays';
 import MenuImage from '../../components/MenuImage/MenuImage';
 import DrawerActions from 'react-navigation';
-import { getCategoryName } from '../../data/MockDataAPI';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -20,12 +19,12 @@ export default class HomeScreen extends React.Component {
     super(props);
   }
 
-  onPressRecipe = item => {
-    this.props.navigation.navigate('Recipe', { item });
+  onPressProduct = item => {
+    this.props.navigation.navigate('Describtion', { item });
   };
 
-  renderRecipes = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressRecipe(item)}>
+  renderProducts = ({ item }) => (
+    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressProduct(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
         <Text style={styles.title}>{item.name}</Text>
@@ -37,15 +36,14 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.layoutContainer}>
-        {/* <Image source={require('../../../assets/images/1.png')}/> */}
       <View>
         <FlatList
           vertical
           showsVerticalScrollIndicator={false}
           numColumns={2}
           data={products}
-          renderItem={this.renderRecipes}
-          keyExtractor={item => `${item.recipeId}`}
+          renderItem={this.renderProducts}
+          keyExtractor={item => `${item.id}`}
         />
       </View>
       <View style={styles.buttonContainer}>
