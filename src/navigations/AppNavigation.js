@@ -14,6 +14,7 @@ import SignInScreen from "../screens/SignIn/SignIn";
 import WelcomeScreen from "../screens/Welcome/WelcomeScreen";
 import SignUpScreen from "../screens/SignIn/SignUp";
 import OrderScreen from "../screens/Order/OrderScreen";
+import EndScreen from "../screens/End/EndScreen";
 
 const MainNavigator = createStackNavigator(
   {
@@ -22,6 +23,7 @@ const MainNavigator = createStackNavigator(
     Welcome:WelcomeScreen,
     Home: HomeScreen,
     Order:OrderScreen,
+    End:EndScreen,
     Categories: CategoriesScreen,
     Describtion: DescribtionScreen,
     RecipesList: RecipesListScreen,
@@ -30,7 +32,7 @@ const MainNavigator = createStackNavigator(
     IngredientsDetails: IngredientsDetailsScreen,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Welcome",
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: "bold",
