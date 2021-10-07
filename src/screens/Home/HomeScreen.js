@@ -29,9 +29,9 @@ export default class HomeScreen extends React.Component {
   };
 
   renderProducts = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressProduct(item)}>
+    <TouchableHighlight underlayColor='blue' onPress={() => this.onPressProduct(item)}>
       <View style={styles.container}>
-        <Image style={styles.photo} source={{ uri: item.photo_url }} />
+        <Image style={styles.photo} source={{ uri: item.image_url }} />
         <Text style={styles.title}>{item.name}</Text>
         <Text style={styles.category}>{item.price}</Text>
       </View>
