@@ -7,14 +7,14 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from "react-native";
+} from "react-native";  
 
 const OrderScreen = ({ navigation }) => {
   return (
     
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.button}>
+        <TouchableOpacity>
           <Text style={styles.buttonText}>Get Start</Text>
         </TouchableOpacity>
         
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   buttonText: {
-    color: "white",
+    color: "black",
     fontWeight: "700",
     fontSize: 16,
   },

@@ -4,6 +4,8 @@ import styles from './styles';
 import { products } from '../../data/dataArrays';
 import MenuImage from '../../components/MenuImage/MenuImage';
 import DrawerActions from 'react-navigation';
+import { useNavigation } from "@react-navigation/core";
+
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -21,6 +23,9 @@ export default class HomeScreen extends React.Component {
 
   onPressProduct = item => {
     this.props.navigation.navigate('Describtion', { item });
+  };
+  onPressOrder = products => {
+    this.props.navigation.navigate('Order',{ products });
   };
 
   renderProducts = ({ item }) => (
@@ -47,7 +52,7 @@ export default class HomeScreen extends React.Component {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Order')} style={styles.button}>
+        <TouchableOpacity onPress={() => this.onPressOrder()} style={styles.button}>
           <Text style={{marginTop:10,fontSize:20}}>Get Start</Text>
         </TouchableOpacity>
         
