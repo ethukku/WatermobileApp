@@ -62,11 +62,12 @@ export default class DescribtionScreen extends React.Component {
         </View>
         <View style={styles.infoContainer}>
           <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
+          </View>
           <View style={styles.buttonContainer}>
-            <ViewIngredientsButton
-              onPress={() => navigation.navigate('Home')}
-            />
-        </View>
+          <TouchableOpacity onPress={() => navigation.navigate('Order')} style={styles.button}>
+          <Text style={styles.buttonText}> Add</Text>
+        </TouchableOpacity> 
+        
         </View>
       </ScrollView>
     );

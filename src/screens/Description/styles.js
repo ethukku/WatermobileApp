@@ -49,10 +49,20 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   buttonContainer: {
-    flex: 1,
+    flex: 2,
+    width:"90%",
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    paddingLeft:"10%",
+    marginTop:50
+  },
+  button: {
+    backgroundColor: "#0782F9",
+    width: "100%",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
   },
   // infoPhoto: {
   //   height: 20,
@@ -82,7 +92,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     textAlign: "auto",
-  }
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "600",
+    fontSize: 20,
+  },
 });
 
 export default styles;
