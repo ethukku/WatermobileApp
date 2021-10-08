@@ -33,7 +33,7 @@ const SignUpScreen = ({ navigation }) => {
 
   const handleSignUp = () => {
     auth 
-      .createUserWithEmailAndPassword(email, password,firstname,lastname,address,contactno)
+      .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("Registered with:", user.email,user.firstname);
