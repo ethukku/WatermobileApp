@@ -8,38 +8,43 @@ const styles = StyleSheet.create({
     flex:1
   },
   carouselContainer: {
-    minHeight: 250
+    alignItems:'flex-start',
+
+
   },
   carousel: {},
 
-  // image: {
-  //   ...StyleSheet.absoluteFillObject,
-  //   width: '100%',
-  //   height: 250
-  // },
-  // imageContainer: {
-  //   flex: 1,
-  //   justifyContent: 'center',
-  //   width: viewportWidth,
-  //   height: 250
-  // },
-  // paginationContainer: {
-  //   flex: 1,
-  //   position: 'absolute',
-  //   alignSelf: 'center',
-  //   paddingVertical: 8,
-  //   marginTop: 200
-  // },
-  // paginationDot: {
-  //   width: 8,
-  //   height: 8,
-  //   borderRadius: 4,
-  //   marginHorizontal: 0
-  // },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    width: '70%',
+    height: 200,
+    
+    
+  },
+  imageContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    width: viewportWidth,
+    height: 250,
+    paddingLeft:100
+  },
+  paginationContainer: {
+    flex: 1,
+    position: 'absolute',
+    alignSelf: 'center',
+    paddingVertical: 8,
+    marginTop: 200
+  },
+  paginationDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginHorizontal: 0
+  },
   infoRecipeContainer: {
     flex: 2,
     margin: 25,
-    marginTop: 200,
+    marginTop: 100,
     alignItems:'flex-start'
   },
   infoContainer: {
@@ -64,22 +69,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
   },
-  // infoPhoto: {
-  //   height: 20,
-  //   width: 20,
-  //   marginRight: 0
-  // },
-  // infoRecipe: {
-  //   fontSize: 14,
-  //   fontWeight: 'bold',
-  //   marginLeft: 5,
-  // },
-  // category: {
-  //   fontSize: 14,
-  //   fontWeight: 'bold',
-  //   margin: 10,
-  //   color: '#2cd18a'
-  // },
+ 
   infoDescriptionRecipe: {
     textAlign: 'left',
     fontSize: 16,

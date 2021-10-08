@@ -53,6 +53,13 @@ export default class DescribtionScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
+          <View style={styles.carouselContainer}>
+            <View style={styles.imageContainer}>
+          <View style={styles.carousel}>
+          <Image style={styles.image} source={{ uri: item.image_url }} />           
+          </View>
+          </View>
+        </View>
         <View style={styles.infoRecipeContainer}>
           <Text style={styles.infoRecipeName}>Product Name -{item.name}</Text>
           <Text style={styles.infoRecipeName}>Product Price -{item.price}</Text>
@@ -65,7 +72,7 @@ export default class DescribtionScreen extends React.Component {
           </View>
           <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('Order')} style={styles.button}>
-          <Text style={styles.buttonText}> Add</Text>
+          <Text style={styles.buttonText}> buy now</Text>
         </TouchableOpacity> 
         
         </View>
