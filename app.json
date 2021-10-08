@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Instafood",
-    "slug": "instafood-recipes-app",
-    "description": "React Native Recipes App Demo. Download source code for free at https://www.instamobile.io . You can also check out the Swift version at https://www.iosapptemplates.com and the Kotlin version at https://www.instakotlin.com .",
+    "name": "E-water App",
+    "slug": "ewaterapp",
+    "description": "",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -13,7 +13,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/images/20.png",
+      "image": "./assets/images/title.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
