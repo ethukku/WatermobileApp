@@ -7,14 +7,16 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image
+  Image,
+  ImageBackground
 } from "react-native";
 
+const image = { uri: "http://gsmcloud.xyz/end.jpg" };
 const EndScreen = ({ navigation }) => {
     
   return (
     <View style={styles.Container}>
-    {/* <Image source={require('../../../assets/splash.png')}  style={{height:100, width:200}}/> */}
+    <ImageBackground source={image} resizeMode="cover" style={{height:"100%", width:"100%"}}>
     <View style={styles.headerContainer}>
 
     <Text style={styles.Textinfo}>Thank you For Your Orders{"\n"}Wait For Order Again.</Text>
@@ -25,6 +27,7 @@ const EndScreen = ({ navigation }) => {
           <Text style={styles.buttonText}>Make Another Order</Text>
         </TouchableOpacity>   
       </View>
+      </ImageBackground>
     </View>
   );
 

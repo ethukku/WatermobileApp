@@ -45,7 +45,7 @@ export const products = [
     id: 5,
     name: ' 5 litre Empty Bottles',
     price: '120 /=',
-    image_url: 'http://gsmcloud.xyz/empty.png',
+    image_url: 'http://gsmcloud.xyz/5empty.png',
     description:'A water bottle is a container that is used to hold water, liquids or other beverages for consumption. The use of a water bottle allows an individual to drink and transport a beverage from one place to another. ... Water bottles can be either disposable or reusable.',
     availableproduct:100,
     availability : true
@@ -55,7 +55,7 @@ export const products = [
     id: 6,
     name: 'Water(per litre)',
     price: '3 /=',
-    image_url: 'http://gsmcloud.xyz/empty.png',
+    image_url: 'http://gsmcloud.xyz/water.png',
     description:'A water bottle is a container that is used to hold water, liquids or other beverages for consumption. The use of a water bottle allows an individual to drink and transport a beverage from one place to another. ... Water bottles can be either disposable or reusable.',
     availableproduct:100,
     availability : true

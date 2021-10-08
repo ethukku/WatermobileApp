@@ -7,18 +7,23 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image
+  Image,
+  ImageBackground
 } from "react-native";
+const image = { uri: "http://gsmcloud.xyz/getstartf.jpg" };
+
 
 const WelcomeScreen = ({ navigation }) => {
   return (
-    <View>
-    {/* <Image source={require('../../../assets/images/1.png')} /> */}
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.button}>
+    <View style={styles.Container}> 
+    <ImageBackground source={image} resizeMode="cover" style={{height:"100%", width:"100%"}}>
+
+    <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('End')} style={styles.button}>
           <Text style={styles.buttonText}>Get Start</Text>
         </TouchableOpacity>   
       </View>
+    </ImageBackground>
     </View>
   );
 
@@ -28,6 +33,8 @@ export default WelcomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width:"100%",
+    height:"100%",
     justifyContent: "center",
     alignItems: "center",
   },

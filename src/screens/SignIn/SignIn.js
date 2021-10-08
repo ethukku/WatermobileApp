@@ -7,23 +7,26 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image
 } from "react-native";
 import { auth } from "../../firebase";
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigation.replace("Home");
       }
     });
-
+    
     return unsubscribe;
   }, []);
-
+  
+  const image = { uri: "http://gsmcloud.xyz/logo.png" };
   const handleSignUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
@@ -46,6 +49,9 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <View style={styles.logocontainer}>
+      <Image source={image} style={styles.logo}/>
+      </View>
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
@@ -84,6 +90,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  logocontainer:{
+    width:"80%",
+    height:100,
+    justifyContent: "center",
+    alignItems: "center",
+
+  },
+  logo:{
+   width:150,
+   height:100 
   },
   inputContainer: {
     width: "80%",
