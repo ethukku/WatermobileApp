@@ -1,74 +1,105 @@
-import { useNavigation } from "@react-navigation/core";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
-  KeyboardAvoidingView,
-  StyleSheet,
+  FlatList,
+  ScrollView,
   Text,
-  TextInput,
-  TouchableOpacity,
   View,
-} from "react-native";  
+  TouchableOpacity,
+  Image,
+  Dimensions,
+  TouchableHighlight,
+  Button,
+} from "react-native";
+import Carousel, { Pagination } from "react-native-snap-carousel";
+import BackButton from "../../components/BackButton/BackButton";
+import styles from "./styles";
+import ViewIngredientsButton from "../../components/ViewIngredientsButton/ViewIngredientsButton";
 
-const OrderScreen = ({ navigation }) => {
-  return (
-    
+const { width: viewportWidth } = Dimensions.get("window");
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity>
-          <Text style={styles.buttonText}>Get Start</Text>
-        </TouchableOpacity>
-        
+export default class OrderScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTransparent: "true",
+      headerLeft: () => (
+        <BackButton
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+      ),
+    };
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeSlide: 0,
+    };
+  }
+
+  renderImage = ({ item }) => (
+    <TouchableHighlight>
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={{ uri: item.image_url }} />
       </View>
+    </TouchableHighlight>
   );
 
-  };
-export default OrderScreen;
+  renderProducts = ({ item }) => (
+    <View style={styles.container}>
+      <Image style={styles.photo} source={{ uri: item.image_url }} />
+      <Text style={styles.title}>{item.name}</Text>
+      <Text style={styles.category}>{item.price}</Text>
+    </View>
+  );
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  inputContainer: {
-    width: "80%",
-  },
-  input: {
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 5,
-  },
-  buttonContainer: {
-    width: "80%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop:400,
-    
-    
-  },
-  button: {
-    backgroundColor: "#0782F9",
-    width: "100%",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  buttonOutline: {
-    backgroundColor: "white",
-    marginTop: 5,
-    borderColor: "#0782F9",
-    borderWidth: 2,
-  },
-  buttonText: {
-    color: "black",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  buttonOutlineText: {
-    color: "#0782F9",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-});
+  fillTotal = (item) => {
+    const total = item.reduce((item, data) => item + data.price, 0);
+    return total;
+  };
+
+  render() {
+    const { activeSlide } = this.state;
+    const { navigation } = this.props;
+    const item = navigation.getParam("items");
+    console.log("item", item);
+
+    return (
+      <View style={{ flex: 1, marginTop: 100 }}>
+        <FlatList
+          vertical
+          showsVerticalScrollIndicator={false}
+          numColumns={2}
+          data={item}
+          renderItem={this.renderProducts}
+          keyExtractor={(item) => `${item.id}`}
+        />
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            backgroundColor: "grey",
+            padding: 15,
+          }}
+        >
+          <Text style={{ fontSize: 15, color: "white", fontweight: "bold" }}>
+            Total
+          </Text>
+          <Text style={{ fontSize: 15, color: "white", fontweight: "bold" }}>
+            {`${this.fillTotal(item)} LKR`}
+          </Text>
+          <Button
+            onPress={() =>
+              this.props.navigation.navigate("PaymentScreen", {
+                total: this.fillTotal(item),
+              })
+            }
+            title="Checkout"
+          />
+        </View>
+      </View>
+    );
+  }
+}
