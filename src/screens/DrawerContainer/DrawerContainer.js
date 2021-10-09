@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View,Text } from "react-native";
 import PropTypes from "prop-types";
 import styles from "./styles";
 import MenuButton from "../../components/MenuButton/MenuButton";
@@ -9,10 +9,14 @@ export default class DrawerContainer extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
+      // <View style={styles.accountcontent}>
+      //      {/* <Text>user name</Text>
+      //      <Text>user Email</Text> */}
+      // </View>  
       <View style={styles.content}>
         <View style={styles.container}>
           <MenuButton
-            title="HOME"
+            title="Home"
             source={require("../../../assets/icons/home.png")}
             onPress={() => {
               navigation.navigate("Home");
@@ -20,7 +24,7 @@ export default class DrawerContainer extends React.Component {
             }}
           />
           <MenuButton
-            title="CATEGORIES"
+            title="Orders"
             source={require("../../../assets/icons/category.png")}
             onPress={() => {
               navigation.navigate("Categories");
@@ -36,7 +40,7 @@ export default class DrawerContainer extends React.Component {
             }}
           />
           <MenuButton
-            customStyle={{ marginTop: 200 }}
+            // customStyle={{ marginTop: 200}}
             title="LOGOUT"
             onPress={() => {
               auth

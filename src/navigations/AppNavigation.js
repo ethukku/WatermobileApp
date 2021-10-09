@@ -16,6 +16,9 @@ import SignUpScreen from "../screens/SignIn/SignUp";
 import OrderScreen from "../screens/Order/OrderScreen";
 import EndScreen from "../screens/End/EndScreen";
 
+
+
+// const image = { uri: "http://gsmcloud.xyz/favicon.png" };
 const MainNavigator = createStackNavigator(
   {
     SignIn: SignInScreen,
@@ -49,9 +52,9 @@ const DrawerStack = createDrawerNavigator(
     Main: MainNavigator,
   },
   {
-    drawerPosition: "left",
+    drawerPosition:"left",
     initialRouteName: "Main",
-    drawerWidth: 250,
+    drawerWidth: 200,
     contentComponent: DrawerContainer,
   }
 );

@@ -13,13 +13,15 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start'
   },
   btnIcon: {
-    height: 25,
-    width: 25
+    height: 20,
+    width: 20
   },
   btnText: {
-    fontSize: 16,
+    paddingLeft:5,
+    fontSize: 17,
     marginLeft: 10,
-    marginTop: 2
+    marginTop: 2,
+    fontWeight: 'bold'
   }
 });
 

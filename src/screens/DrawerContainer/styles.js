@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  // accountcontent:{
+  //   flex:1,
+  //   backgroundColor:"blue",
+  //   marginTop:-600,
+  //   width:"100%",
+  // },
   container: {
     flex: 1,
     alignItems: 'flex-start',
