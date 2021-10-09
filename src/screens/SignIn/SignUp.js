@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
+import firebase from "../../firebase";
 import {
   KeyboardAvoidingView,
   StyleSheet,
@@ -9,8 +10,6 @@ import {
   View,
   Image
 } from "react-native";
-import { auth } from "../../firebase";
-
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +21,7 @@ const SignUpScreen = ({ navigation }) => {
   const image = { uri: "http://gsmcloud.xyz/logo.png" };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         navigation.replace("SignIn");
       }
@@ -32,11 +31,22 @@ const SignUpScreen = ({ navigation }) => {
   }, []);
 
   const handleSignUp = () => {
-    auth 
+    firebase.auth() 
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
+      .then(async(userCredentials) => {
         const user = userCredentials.user;
-        console.log("Registered with:", user.email,user.firstname);
+        await firebase.firestore()
+            .collection('users')
+            .doc(user.uid)
+            .set({
+              firstname,
+              lastname,
+              contactno,
+              email,
+              address
+            }).then(res=>{
+              console.log("Registered sucess");
+            }).catch(err=>console.log('firestore error',err))
       })
       .catch((error) => alert(error.message));
   };

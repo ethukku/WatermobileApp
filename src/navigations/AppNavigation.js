@@ -60,5 +60,3 @@ const DrawerStack = createDrawerNavigator(
 );
 
 export default AppContainer = createAppContainer(DrawerStack);
-
-console.disableYellowBox = true;

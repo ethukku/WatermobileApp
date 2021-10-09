@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect, useState } from "react";
+import firebase from "../../firebase";
+import React, { useContext, useEffect, useState } from "react";
 import {
   KeyboardAvoidingView,
   StyleSheet,
@@ -9,15 +10,15 @@ import {
   View,
   Image
 } from "react-native";
-import { auth } from "../../firebase";
+import { GlobalContext } from "../../context/GlobalContext";
 
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const gContext = useContext(GlobalContext);
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         navigation.replace("Home");
       }
@@ -27,21 +28,13 @@ const LoginScreen = ({ navigation }) => {
   }, []);
   
   const image = { uri: "http://gsmcloud.xyz/logo.png" };
-  const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Registered with:", user.email);
-      })
-      .catch((error) => alert(error.message));
-  };
 
   const handleLogin = () => {
-    auth
+    firebase.auth() 
       .signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
+        gContext.changeAuthUser(user.uid)
         console.log("Logged in with:", user.email);
       })
       .catch((error) => alert(error.message));

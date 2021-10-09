@@ -3,7 +3,7 @@ import { View,Text } from "react-native";
 import PropTypes from "prop-types";
 import styles from "./styles";
 import MenuButton from "../../components/MenuButton/MenuButton";
-import { auth } from "../../firebase";
+import  firebase  from "../../firebase";
 
 export default class DrawerContainer extends React.Component {
   render() {
@@ -43,7 +43,7 @@ export default class DrawerContainer extends React.Component {
             // customStyle={{ marginTop: 200}}
             title="LOGOUT"
             onPress={() => {
-              auth
+              firebase.auth()
                 .signOut()
                 .then(() => {
                   navigation.navigate("SignIn");
