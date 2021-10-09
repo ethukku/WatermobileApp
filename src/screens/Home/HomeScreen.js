@@ -5,9 +5,18 @@ import { products } from '../../data/dataArrays';
 import MenuImage from '../../components/MenuImage/MenuImage';
 import DrawerActions from 'react-navigation';
 import { useNavigation } from "@react-navigation/core";
+import { GlobalContext } from '../../context/GlobalContext';
 
 
 export default class HomeScreen extends React.Component {
+  static contextType = GlobalContext
+
+  componentDidMount() {
+    const contextObj = this.context
+
+    console.log(contextObj.authUser) // { name: 'Tania', loggedIn: true }
+  }
+  
   static navigationOptions = ({ navigation }) => ({
     title: 'Home',
     headerLeft: () => <MenuImage

@@ -10,13 +10,11 @@ const firebaseConfig = {
   measurementId: "G-HDK4HLGSGP"
 };
 
-let app;
 if (firebase.apps.length === 0) {
-  app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 } else {
-  app = firebase.app();
+firebase.app();
 }
-
-const auth = firebase.auth();
-
-export { auth };
+import 'firebase/auth';
+import 'firebase/firestore';
+export default firebase;
