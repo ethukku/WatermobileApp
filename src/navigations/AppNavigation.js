@@ -15,15 +15,19 @@ import WelcomeScreen from "../screens/Welcome/WelcomeScreen";
 import SignUpScreen from "../screens/SignIn/SignUp";
 import OrderScreen from "../screens/Order/OrderScreen";
 import EndScreen from "../screens/End/EndScreen";
+import PaymentScreen from "../screens/Payment/Payment";
+import CardPaymentScreen from "../screens/Payment/CardPayment";
 
 const MainNavigator = createStackNavigator(
   {
+    CardPaymentScreen: CardPaymentScreen,
+    PaymentScreen: PaymentScreen,
     SignIn: SignInScreen,
     SignUp: SignUpScreen,
-    Welcome:WelcomeScreen,
+    Welcome: WelcomeScreen,
     Home: HomeScreen,
-    Order:OrderScreen,
-    End:EndScreen,
+    Order: OrderScreen,
+    End: EndScreen,
     Categories: CategoriesScreen,
     Describtion: DescribtionScreen,
     RecipesList: RecipesListScreen,
