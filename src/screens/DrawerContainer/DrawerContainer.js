@@ -9,11 +9,12 @@ export default class DrawerContainer extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      // <View style={styles.accountcontent}>
-      //      {/* <Text>user name</Text>
-      //      <Text>user Email</Text> */}
-      // </View>  
-      <View style={styles.content}>
+       <View style={styles.drawer}>
+        
+        <View style={styles.content}>
+          <View style={styles.accountcontent}>
+           <Text>hiiii</Text>
+          </View>  
         <View style={styles.container}>
           <MenuButton
             title="Home"
@@ -40,7 +41,6 @@ export default class DrawerContainer extends React.Component {
             }}
           />
           <MenuButton
-            // customStyle={{ marginTop: 200}}
             title="LOGOUT"
             onPress={() => {
               firebase.auth()
@@ -53,6 +53,7 @@ export default class DrawerContainer extends React.Component {
           />
         </View>
       </View>
+    </View>
     );
   }
 }
