@@ -73,6 +73,7 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
       <View style={styles.layoutContainer}>
         <View>
           <FlatList
@@ -84,8 +85,20 @@ export default class HomeScreen extends React.Component {
             keyExtractor={(item) => `${item.id}`}
           />
         </View>
-        <View style={styles.buttonContainer}>
+        <View style={{flex:1}}>
+        </View>
+      </View>
           <TouchableOpacity
+            style={{
+              backgroundColor:"blue",
+              borderRadius: 8,
+              marginHorizontal: 20,
+              height:60,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 20,
+              paddingLeft:10
+            }}
             onPress={() =>
               this.props.navigation.navigate("Order", {
                 items: this.state.basketItems,
@@ -93,10 +106,9 @@ export default class HomeScreen extends React.Component {
             }
             style={styles.button}
           >
-            <Text style={{ marginTop: 10, fontSize: 20 }}>Go to Basket</Text>
+            <Text style={{ fontSize: 18, lineHeight: 18 * 1.4,color:"white", }}>Go to Basket</Text>
           </TouchableOpacity>
-        </View>
-      </View>
+          </React.Fragment>
     );
   }
 }
